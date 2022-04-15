@@ -8,19 +8,20 @@ tags:
   - devops
 ---
 
-##. How to setup on-premise k8s cluster
+## How to setup on-premise k8s cluster
 
-###. What is k8s?
+### What is k8s?
 
-* Kubernetes, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications.
+> Kubernetes, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications.
 
-###. setup k8s cluster
+### setup k8s cluster
 
-####. step 1. node setting (debian 기준)
+#### step 1. node setting (debian 기준)
 
-* (mandatory) swapoff, load br_netfilter, install docker, install kublet/kubeadm/kubectl, install systemd-resolved
-* (option) install nfs client (using NFS PersistentVolume)
-```
+> (mandatory) swapoff, load br_netfilter, install docker, install kublet/kubeadm/kubectl, install systemd-resolved
+> (option) install nfs client (using NFS PersistentVolume)
+
+```bash
 #!/bin/bash
 
 swapoff -a
@@ -83,11 +84,12 @@ kubectl completion bash >/etc/bash_completion.d/kubectl
  systemctl start systemd-resolved
 ```
 
-####. step 2. master node setting (debian 기준)
+#### step 2. master node setting (debian 기준)
 
-* kubeadm init with master node host ip
-* deploy weave network (you can choose another network solution)
-```
+> kubeadm init with master node host ip
+> deploy weave network (you can choose another network solution)
+
+```bash
 #!/bin/bash
 
 set -x
@@ -118,21 +120,24 @@ echo -e "also, you can generate token $ kubeadm token create --print-join-comman
 kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 ```
 
-####. step 3. slave node setting (debian 기준)
+#### step 3. slave node setting (debian 기준)
 
-* generate token at master node
-```
+> generate token at master node
+
+```bash
 $ kubeadm token create --print-join-command
 ```
 
-* run the command created above at slave node
-```
+> run the command created above at slave node
+
+```bash
 $ kubeadm join {master node ip}:6443 --token {token} --discovery-token-ca-cert-hash {token hash}
 ```
 
-####. step 4. check node status
+#### step 4. check node status
 
-* check node status at master node
-```
+> check node status at master node
+
+```bash
 $ kubectl get nodes
 ```
