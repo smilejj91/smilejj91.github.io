@@ -19,6 +19,7 @@ tags:
 #### step 1. node setting (debian 기준)
 
 > (mandatory) swapoff, load br_netfilter, install docker, install kublet/kubeadm/kubectl, install systemd-resolved
+
 > (option) install nfs client (using NFS PersistentVolume)
 
 ```bash
