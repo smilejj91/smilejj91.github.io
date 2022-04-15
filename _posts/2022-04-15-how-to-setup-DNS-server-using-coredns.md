@@ -47,7 +47,7 @@ services:
 ```bash
 example.net {
   hosts {
-    192.168.10.125 test.example.net
+    192.168.10.10 test.example.net
     ttl 300
     fallthrough
   }
@@ -58,7 +58,9 @@ example.net {
 }
 
 . {
-  forward . 8.8.8.8
+  forward . 8.8.8.8 {
+    except example.net
+  }
   log
   errors {
         consolidate 5m ".* i/o timeout$" warning
@@ -79,7 +81,7 @@ tmaxos.net {
 
 ```bash
 $ cat wildcard.tmaxos.net
-@                      3600 SOA   127.0.0.1. (
+@                  3600 SOA   127.0.0.1. (
                               127.0.0.1.                 ; address of responsible party
                               2022040801                 ; serial number
                               3600                       ; refresh period
@@ -88,8 +90,8 @@ $ cat wildcard.tmaxos.net
                               1800                       ; minimum ttl
                               )
 ... 생략 ...
-gitlab            IN    A 192.168.105.92
-*.pages        IN    A 192.168.105.92
+gitlab         IN    A 192.168.10.10
+*.pages        IN    A 192.168.10.10
 ```
 
 #### exec command
@@ -98,11 +100,11 @@ gitlab            IN    A 192.168.105.92
 $ docker-compose up -d
 ```
 
-#### using nameserver
+#### change nameserver
 
 > 네트워크 설정에 들어가서, 해당 dns container를 띄운 ip 주소를 nameserver에 입력하면 끝
 
-### link
+### git
 
-> git : https://github.com/smilejj91/coreDNS-setting
+link : https://github.com/smilejj91/coreDNS-setting
 
