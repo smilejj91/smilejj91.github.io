@@ -104,7 +104,7 @@ $ docker-compose up -d
 
 > 네트워크 설정에 들어가서, 해당 dns container를 띄운 ip 주소를 nameserver에 입력하면 끝
 
-### git
+### Git
 
-link : https://github.com/smilejj91/coreDNS-setting
+[coreDNS-setting](https://github.com/smilejj91/coreDNS-setting)
 

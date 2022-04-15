@@ -142,3 +142,7 @@ $ kubeadm join {master node ip}:6443 --token {token} --discovery-token-ca-cert-h
 ```bash
 $ kubectl get nodes
 ```
+
+### Git
+
+[k8s-cluster-setting](https://github.com/smilejj91/k8s-cluster-setting)
