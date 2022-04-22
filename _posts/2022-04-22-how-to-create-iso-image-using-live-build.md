@@ -67,7 +67,7 @@ $ lb config
 LB_ARCHITECTURE="amd64"
 
 # Select distribution to use
-LB_DISTRIBUTION="tmax-unstable"
+LB_DISTRIBUTION="bullseye"
 
 # Select archive areas to use
 LB_ARCHIVE_AREAS="main contrib non-free"
@@ -154,7 +154,7 @@ LB_INITSYSTEM="systemd"
 LB_SYSTEM="live"
 
 # Set base name of the image
-LB_IMAGE_NAME="TmaxGooroom_21_common"
+LB_IMAGE_NAME="debian_bullsye"
 
 # Set options to use with apt
 APT_OPTIONS="--yes -o Acquire::Retries=5 -o Dpkg::Options::=--force-confdef"
