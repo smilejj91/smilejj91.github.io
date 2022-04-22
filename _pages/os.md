@@ -1,5 +1,5 @@
 ---
-title: "DevOps"
+title: "OS"
 permalink: /categories/OS/
 layout: category
 author_profile: true
