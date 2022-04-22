@@ -1,6 +1,6 @@
 ---
 title: "DevOps"
-permalink: /categories/DevoOps/
+permalink: /categories/DevOps/
 layout: category
 author_profile: true
 taxonomy: DevOps
