@@ -55,3 +55,25 @@ memory_limit=512M
 ```
 
 > [Big File Upload Configuration](https://docs.nextcloud.com/server/latest/admin_manual/configuration_files/big_file_upload_configuration.html)
+
+
+#### 4. nextcloud trashbin auto clear
+
+> NextCloud가 할당 받은 용량이 가득찰 경우, 데이터 전송이 되지 않는 것을 확인
+
+> 일전에  Files automated tagging plugin과 Retention plugin을 이용하여, 10일이 지난 파일들이 자동으로 삭제가 될 수 있도록 조치를 했었음
+
+> 확인해보니, 삭제된 파일들은 영구적으로 삭제되는 것이 아니라 휴지통으로 이동되어 보관 되고 있었음
+
+> 휴지통에 있는 파일의 보관 주기는 기본으로 30일로 세팅이 되어있기 때문에, 휴지통에 보관된 파일들이 제거되지 않아 새로운 백업파일이 전송되지 못하고 있었음
+
+> 이에 따라, 휴지통에 있는 파일 보관 정책을 변경하여, 최대 1일동안 보관하고 동적으로 공간이 필요할 때 제거가 될 수 있도록 설정을 추가함 (아래와 같이 추가)
+
+```bash
+$ vi config/config.php
+... 생략 ...
+'trashbin_retention_obligation' => 'auto, 1',
+... 생략 ...
+```
+
+> [Deleted Items Trash Bin](https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/config_sample_php_parameters.html#deleted-items-trash-bin)
