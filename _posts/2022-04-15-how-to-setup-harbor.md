@@ -18,7 +18,7 @@ tags:
 
 ### Quick start to install Harbor
 
-[harbor-setting](https://github.com/smilejj91/harbor-setting)
+[harbor-setting](https://github.com/smilejj91/devops-setting/tree/main/harbor)
 
 ### Install Harbor Step by Step
 
@@ -108,5 +108,5 @@ $ docker-compose up -d
 
 ### Git
 
-[harbor-setting](https://github.com/smilejj91/harbor-setting)
+[harbor-setting](https://github.com/smilejj91/devops-setting/tree/main/harbor)
 

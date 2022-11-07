@@ -106,5 +106,5 @@ $ docker-compose up -d
 
 ### Git
 
-[coreDNS-setting](https://github.com/smilejj91/coreDNS-setting)
+[coreDNS-setting](https://github.com/smilejj91/devops-setting/tree/main/coredns)
 
