@@ -45,6 +45,27 @@ $ docker node promote/demote
   * Replica 숫자만큼 Task가 생성되며, 이름은 (서비스명).(일련번호) 형식으로 생성됨
   * Service와 Task를 한 줄로 정리하자면, Service는 명세이고 Task는 실질적으로 배포되는 컨테이너임
 
+### Architecture (Stack)
+
+* Stack
+  * 하나 이상의 서비스(Service)로 구성된 다중 컨테이너 애플리케이션 묶음을 의미
+  * 흔히 알고 있는 docker compose와 유사하지만, default network 구성 등에 있어서 분명한 차이가 있음
+  * stack deploy시, 마지막에 stack name을 넣게 됨
+```bash
+$ docker stack deploy -c $stack_yaml_file $stack_name
+```
+  * stack 자체의 의미는 애플리케이션 묶음을 의미하지만, 필요시 stack을 k8s namespace와 같이 사용할 수 있음
+  * 실제로 아래 커맨드를 통해서 service의 상세 정보를 확인해보면, stack에 대한 namespace 라벨이 존재하는 것을 확인할 수 있음
+```bash
+$ docker inspect service $service_name
+ 
+... (생략) ...
+"Labels": {
+                ... (생략) ...
+                "com.docker.stack.namespace": "$stack_name"
+          },
+```
+
 ### Architecture (Security)
 
 ![Docker Swarm Security Architecture](/assets/img/docker-swarm-security-architecture.png)
