@@ -1,0 +1,4 @@
+fileignoreconfig:
+- filename: _posts/2023-05-29-what-is-devsecops.md
+  checksum: 3976e525d80bd2089d5ced811c08748a6dfcf20ab2b879e6dea9f658b2837851
+version: "1.0"
