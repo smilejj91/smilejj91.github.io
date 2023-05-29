@@ -8,6 +8,8 @@ tags:
   - debian
   - bullseye
   - os
+# 목차
+toc: true
 ---
 
 ### How to make debian package

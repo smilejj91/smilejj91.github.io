@@ -7,6 +7,8 @@ tags:
   - gitlab
   - gitlab-runner
   - devops
+# 목차
+toc: true
 ---
 
 ### How to use gitlab runner

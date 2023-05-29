@@ -10,6 +10,8 @@ tags:
   - bullseye
   - os
   - devops
+# 목차
+toc: true
 ---
 
 ### How to setup DAK

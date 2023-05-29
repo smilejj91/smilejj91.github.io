@@ -6,6 +6,8 @@ categories:
 tags:
   - k8s
   - devops
+# 목차
+toc: true
 ---
 
 ## How to setup on-premise k8s cluster

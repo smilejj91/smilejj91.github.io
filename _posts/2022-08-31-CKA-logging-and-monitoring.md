@@ -7,6 +7,8 @@ tags:
   - cka
   - devops
   - k8s
+# 목차
+toc: true
 ---
 
 ### CKA - logging and monitoring

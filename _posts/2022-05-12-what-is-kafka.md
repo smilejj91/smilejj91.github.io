@@ -6,6 +6,8 @@ categories:
 tags:
   - kafka
   - devops
+# 목차
+toc: true
 ---
 
 ### What is Kafka
