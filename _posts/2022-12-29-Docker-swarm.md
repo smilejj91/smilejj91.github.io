@@ -85,12 +85,14 @@ $ docker inspect service $service_name
 ### Setup Docker Swarm Cluster
 
 * Manager Node
+
 ```bash
 $ docker swarm init # initialize docker swarm
 $ docker swarm join-token worker # create token to join swarm cluster for worker node
 ```
 
 * Worker Node
+
 ```bash
 $ docker swarm join --token (token) (manager node) # get command by executing command '$docker swarm join-token worker' in manager node
 ```
@@ -98,11 +100,13 @@ $ docker swarm join --token (token) (manager node) # get command by executing co
 ### Deploy Service
 
 * Using command
+
 ```bash
 $ docker service create --replicas 1 --name hello-world alpine ping docker.command
 ```
 
 * Using Compose File
+
 ```bash
 $ vi compose.yaml
  
