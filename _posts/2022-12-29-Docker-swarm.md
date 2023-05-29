@@ -47,6 +47,8 @@ $ docker node promote/demote
 
 ### Architecture (Stack)
 
+![Docker Swarm Stack Architecture](/assets/img/docker-swarm-stack-architecture.png)
+
 * Stack
   * 하나 이상의 서비스(Service)로 구성된 다중 컨테이너 애플리케이션 묶음을 의미
   * 흔히 알고 있는 docker compose와 유사하지만, default network 구성 등에 있어서 분명한 차이가 있음
