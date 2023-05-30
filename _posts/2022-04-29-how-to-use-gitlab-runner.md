@@ -9,6 +9,7 @@ tags:
   - devops
 # 목차
 toc: true
+toc_sticky: true
 ---
 
 # How to use gitlab runner

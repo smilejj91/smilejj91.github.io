@@ -10,6 +10,7 @@ tags:
   - k8s
 # 목차
 toc: true
+toc_sticky: true
 ---
 
 # Trouble shooting nextcloud

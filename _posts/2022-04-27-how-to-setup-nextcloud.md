@@ -10,6 +10,7 @@ tags:
   - k8s
 # 목차
 toc: true
+toc_sticky: true
 ---
 
 # How to setup nextcloud simply on k8s cluster
