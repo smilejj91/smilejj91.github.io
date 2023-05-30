@@ -12,11 +12,11 @@ tags:
 toc: true
 ---
 
-### How to make debian package
+# How to make debian package
 
-#### Step 1. Install Basic Packaging Software
+## 1. Install Basic Packaging Software
 
-> shell 환경 변수를 setting합니다. 환경변수를 setting하지 않으면 뒤에 나올 dch로 changelog를 만들어 줄 때 user localhost email이 자동으로 들어가기 때문에 수정이 필요.
+* shell 환경 변수를 setting합니다. 환경변수를 setting하지 않으면 뒤에 나올 dch로 changelog를 만들어 줄 때 user localhost email이 자동으로 들어가기 때문에 수정이 필요.
 
 ```bash
 $ vi ~/.bashrc
@@ -29,16 +29,16 @@ export DEBMAIL DEBFULLNAME
 $ apt-get install -y build-essential git-buildpackage sbuild schroot debootstrap debhelper tmax-archive-keyring dput piuparts
 ```
 
-> git config 등록
+* git config 등록
 
 ```bash
 $ git config --global user.email "smilejj91@naver.com"
 $ git config --global user.name "Jaejeon Lim"
 ```
 
-#### Step 2. Git Project 생성
+## 2. Git Project 생성
 
-> 소스 패키지 다운로드
+* 소스 패키지 다운로드
 
 ```bash
 $ apt source --download-only {binary package name}
@@ -54,9 +54,9 @@ $ git push -u origin --all
 $ git push -u origin --tags
 ```
 
-#### Step 3-1. Fix Package
+## 3-1. Fix Package
 
-> debian/source/format 파일에 3.0 (quilt)로 명시된 경우
+* debian/source/format 파일에 3.0 (quilt)로 명시된 경우
 
 ```bash
 $ git checkout devel
@@ -78,7 +78,7 @@ $ git tag {new version}
 $ git push origin devel
 ```
 
-> debian/source/format 파일에 native로 명시된 경우
+* debian/source/format 파일에 native로 명시된 경우
 
 ```bash
 $ git checkout devel
@@ -98,9 +98,9 @@ $ git tag {new version}
 $ git push origin devel
 ```
 
-#### Step 3-2. Make New Package
+## 3-2. Make New Package
 
-> 새로운 패키지를 만드는 경우
+* 새로운 패키지를 만드는 경우
 
 ```bash
 $ mkdir new_package
@@ -121,9 +121,9 @@ $ dh_make -p {package name}_{version} --createorig
 # debian/* 파일 적절하게 수정
 ```
 
-#### Step 4. Sandboxing Build (dist: bullseye, arch: amd64)
+## 4. Sandboxing Build (dist: bullseye, arch: amd64)
 
-> sbuild를 사용하려면 chroot를 생성하고 sbuild 그룹에 자신을 추가
+* sbuild를 사용하려면 chroot를 생성하고 sbuild 그룹에 자신을 추가
 
 ```bash
 # 최초 1회 실행

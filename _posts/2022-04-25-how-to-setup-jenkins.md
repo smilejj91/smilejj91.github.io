@@ -12,15 +12,15 @@ tags:
 toc: true
 ---
 
-### How to setup jenkins using docker
+# How to setup jenkins using docker
 
-#### Jenkins
+## 1. Jenkins
 
-> An open source automation server which enables developers around the world to reliably build, test, and deploy their software. 
+* An open source automation server which enables developers around the world to reliably build, test, and deploy their software. 
 
-#### docker-compose file
+## 2. docker-compose file
 
-> jenkins 폴더를 host에 두어, container 안에서 일어나는 작업물에 대해서 소실되지 않도록 관리
+* jenkins 폴더를 host에 두어, container 안에서 일어나는 작업물에 대해서 소실되지 않도록 관리
 
 ```bash
 version: '3.2'
@@ -38,34 +38,32 @@ services:
         target : "/var/jenkins_home"
 ```
 
-> user를 root로 설정하지 않을 경우 jenkins의 소유권한을 변경해야함
+* user를 root로 설정하지 않을 경우 jenkins의 소유권한을 변경해야함
 
 ```bash
 $ chown -R jenkins:jenkins ./jenkins
 ```
 
-#### execute docker container
+## 3. execute docker container
 
 ```bash
 $ docker-compose up -d
 ```
 
-#### Access jenkins through browser
+## 4. Access jenkins through browser
 
 ```bash
 $ http://{ip address}:{port}
 # ex) http://localhost:8080
 ```
 
-#### Install Jenkins
+## 5. Install Jenkins
 
-> insert jenkins/secrets/initialAdminPassword
+* insert jenkins/secrets/initialAdminPassword
+* install recommend plugin
+* make admin account
 
-> install recommend plugin
-
-> make admin account
-
-### link
+## 6. link
 
 [Official Document](https://www.jenkins.io/doc/book/installing/docker/)
 

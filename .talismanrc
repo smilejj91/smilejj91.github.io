@@ -1,4 +1,14 @@
 fileignoreconfig:
+- filename: _posts/2022-04-22-how-to-create-iso-image-using-live-build.md
+  checksum: a60a17d5146cdf9ad3d2d337ce4aa1a9757cb8f3275699bed3cda986ea5ad898
+- filename: _posts/2022-04-27-how-to-setup-nextcloud.md
+  checksum: e8614dceaa08b3bc2e578bfd3eb3775113817014c2b3f58b6fdfa5b8d67fe12e
+- filename: _posts/2022-06-09-waht-is-vsftpd.md
+  checksum: 96758b8700bd8aed96b1a18490cea11af7d61c8e567dc06911dd718110967507
+- filename: _posts/2022-07-14-CKA-basic-concept.md
+  checksum: 3e5d6ccd3a3956fb921c12fa3d54c853b3230396dd7cdad32c59e085a3acbc84
+- filename: _posts/2022-08-31-CKA-application-lifecycle-management.md
+  checksum: dec8de393aac40d12b725546b45b83c92dce696923c51861c29c32be205c01f2
 - filename: _posts/2023-05-29-what-is-devsecops.md
   checksum: 3976e525d80bd2089d5ced811c08748a6dfcf20ab2b879e6dea9f658b2837851
 version: "1.0"

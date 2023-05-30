@@ -10,9 +10,9 @@ tags:
 toc: true
 ---
 
-### What is Kafka
+# What is Kafka
 
-#### Kafka 구조
+## 1. Kafka 구조
 
 ![Kafka Architecture](/assets/img/Kafka_Architecture.png)
 
@@ -45,7 +45,7 @@ toc: true
   * 메시지를 소비하는 Consumer가 읽을 차례를 의미하므로 Partition마다 별도로 관리
   * 0부터 시작하여 1씩 증가하는 방식
 
-#### Producer and Consumer Group
+## 2. Producer and Consumer Group
 
 ![Producer and Consumer](/assets/img/Producer_and_Consumer.png)
 
@@ -67,7 +67,7 @@ toc: true
   * Consumer Group 이해를 위한 좋은 글 : https://www.popit.kr/kafka-consumer-group
   * 결과적으론, Partition의 개수 >= Consumer 인스턴스의 갯수를 유지하는 것이 좋음
 
-#### RabbitMQ vs Kafka 비교
+## 3. RabbitMQ vs Kafka 비교
 
 * RabbitMQ
   * Message Broker가 Consumer에게 메시지를 *push* 하는 방식
@@ -82,7 +82,7 @@ toc: true
   * 데이터가 없음에도 정기적인 polling으로 인해 자원을 낭비하는 문제가 발생할 수 있어서, 이러한 단점을 보완하기 위해 실제 데이터가 도착할 때까지 long poll 대기를 할 수 있는 parameter를 지원
   * 관련 공식 문서 : https://kafka.apache.org/documentation/#design_pull
 
-#### Replication
+## 4. Replication
 
 ![Replication](/assets/img/Replication.png)
 
@@ -92,6 +92,6 @@ toc: true
 
 * Topic을 생성할 때, --replication-factor 옵션을 부여하면 복제본(replication)을 생성
 
-#### 참고 자료
+## 5. 참고 자료
 
 * [참고문서](https://victorydntmd.tistory.com/344)

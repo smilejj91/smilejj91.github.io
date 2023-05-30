@@ -11,15 +11,15 @@ tags:
 toc: true
 ---
 
-### DNS (Domain Name System)
+# DNS (Domain Name System)
 
-> 호스트의 도메인 이름을 호스트의 네트워크 주소로 바꾸거나 그 반대의 변환을 수행할 수 있도록 하기 위해 개발된 시스템
+* 호스트의 도메인 이름을 호스트의 네트워크 주소로 바꾸거나 그 반대의 변환을 수행할 수 있도록 하기 위해 개발된 시스템
 
-### server setup
+## 1. Server setup
 
-> Lightweight하고 containter-based의 DNS server인 Coredns를 사용 (CKA를 준비하면서 알게된 DNS 서버 솔루션임)
+* Lightweight하고 containter-based의 DNS server인 Coredns를 사용 (CKA를 준비하면서 알게된 DNS 서버 솔루션임)
 
-#### docker-compose.yml
+### docker-compose.yml
 
 ```yaml
 version: '3.2'
@@ -71,7 +71,7 @@ example.net {
 }
 ```
 
-#### config/Corefile (using file plugin)
+### config/Corefile (using file plugin)
 
 ```bash
 $ cat /etc/coredns/Corefile
@@ -96,17 +96,17 @@ gitlab         IN    A 192.168.10.10
 *.pages        IN    A 192.168.10.10
 ```
 
-#### exec command
+### exec command
 
 ```bash
 $ docker-compose up -d
 ```
 
-#### change nameserver
+### change nameserver
 
-> 네트워크 설정에 들어가서, 해당 dns container를 띄운 ip 주소를 nameserver에 입력하면 끝
+* 네트워크 설정에 들어가서, 해당 dns container를 띄운 ip 주소를 nameserver에 입력하면 끝
 
-### Git
+## 2. Git
 
 [coreDNS-setting](https://github.com/smilejj91/devops-setting/tree/main/coredns)
 

@@ -12,19 +12,18 @@ tags:
 toc: true
 ---
 
-### What is Harbor?
+# What is Harbor?
 
-> Harbor is an open source registry that secures artifacts with policies and role-based access control, ensures images are scanned and free from vulnerabilities, and signs images as trusted. 
+* Harbor is an open source registry that secures artifacts with policies and role-based access control, ensures images are scanned and free from vulnerabilities, and signs images as trusted. 
+* Harbor, a CNCF Graduated project, delivers compliance, performance, and interoperability to help you consistently and securely manage artifacts across cloud native compute platforms like Kubernetes and Docker.
 
-> Harbor, a CNCF Graduated project, delivers compliance, performance, and interoperability to help you consistently and securely manage artifacts across cloud native compute platforms like Kubernetes and Docker.
-
-### Quick start to install Harbor
+## 1. Quick start to install Harbor
 
 [harbor-setting](https://github.com/smilejj91/devops-setting/tree/main/harbor)
 
-### Install Harbor Step by Step
+## 2. Install Harbor Step by Step
 
-#### Step 1. Download Harbor
+### Step 1. Download Harbor
 
 ```bash
 read -p 'enter the version: ' VERSION
@@ -34,7 +33,7 @@ wget https://github.com/goharbor/harbor/releases/download/${VERSION}/harbor-offl
 tar xvfz harbor-offline-installer-${VERSION}.tgz
 ```
 
-#### Step 2. Create CA Certificates
+### Step 2. Create CA Certificates
 
 ```bash
 openssl genrsa -out harbor-ca.key 4096
@@ -44,7 +43,7 @@ openssl req -x509 -new -nodes -sha512 -days 3650 \
   -out harbor-ca.crt
 ```
 
-#### Step 3. Create Server Certificates
+### Step 3. Create Server Certificates
 
 ```bash
 openssl genrsa -out harbor.example.net.key 4096
@@ -73,7 +72,7 @@ openssl x509 -req -sha512 -days 3650 \
 openssl x509 -inform PEM -in harbor.example.net.crt -out harbor.example.net.cert
 ```
 
-#### Step 4. Copy Certificates file
+### Step 4. Copy Certificates file
 
 ```bash
 mkdir -p /etc/docker/certs.d/harbor.example.net
@@ -87,7 +86,7 @@ update-ca-certificates
 systemctl restart docker
 ```
 
-#### Step 5. Modify harbor/harbor.yml.tmpl and change the file name
+### Step 5. Modify harbor/harbor.yml.tmpl and change the file name
 
 ```bash
 # modify harbor/harbor.yml.tmpl if you needed
@@ -96,19 +95,19 @@ systemctl restart docker
 $ cd harbor && cp harbor.yml.tmpl harbor.yml
 ```
 
-#### Step 6. Make docker-compose yaml file
+### Step 6. Make docker-compose yaml file
 
 ```bash
 $ ./prepare
 ```
 
-#### Step 7. Start Harbor using docker-compose command
+### Step 7. Start Harbor using docker-compose command
 
 ```bash
 $ docker-compose up -d
 ```
 
-### Git
+## 3. Git
 
 [harbor-setting](https://github.com/smilejj91/devops-setting/tree/main/harbor)
 

@@ -12,17 +12,16 @@ tags:
 toc: true
 ---
 
-### How to setup nextcloud simply on k8s cluster
+# How to setup nextcloud simply on k8s cluster
 
-#### Nextcloud
+## 1. Nextcloud
 
-> NextCloud는 open source이며, 파일 저장 및 공유 서비스를 포함한 업무 관련 기능 (ex. 일정 관리, 문서 작업)들을 제공하는 솔루션으로 dropbox 및 google drive의 대체재로 많이 사용되고 있음
+* NextCloud는 open source이며, 파일 저장 및 공유 서비스를 포함한 업무 관련 기능 (ex. 일정 관리, 문서 작업)들을 제공하는 솔루션으로 dropbox 및 google drive의 대체재로 많이 사용되고 있음
+* Authentication 및 웹 인터페이스를 기본적으로 제공해주고 있어서, 보다 안전하고 편리하게 데이터를 관리할 수 있다는 장점이 있음
 
-> Authentication 및 웹 인터페이스를 기본적으로 제공해주고 있어서, 보다 안전하고 편리하게 데이터를 관리할 수 있다는 장점이 있음
+## 2. k8s yaml file
 
-#### k8s yaml file
-
-> 아래 yaml 파일에는 Secret을 사용하지 않았지만, Secret을 만들어서 사용하는 것을 권장
+* 아래 yaml 파일에는 Secret을 사용하지 않았지만, Secret을 만들어서 사용하는 것을 권장
 
 ```bash
 apiVersion: networking.k8s.io/v1
@@ -162,7 +161,7 @@ spec:
 
 ```
 
-> Secret을 사용할 경우 
+* Secret을 사용할 경우 
 
 ```bash
 apiVersion: v1
@@ -179,7 +178,7 @@ stringData:
   MYSQL_HOST: 127.0.0.1
 ```
 
-> Secret을 사용할 경우 Deployment의 env를 아래와 같이 수정
+* Secret을 사용할 경우 Deployment의 env를 아래와 같이 수정
 
 ```bash
 ...
@@ -192,28 +191,28 @@ env
 ...
 ```
 
-#### Access nextcloud through browser
+## 3. Access nextcloud through browser
 
 ```bash
 $ http://{ip address}
 # ex) http://localhost
 ```
 
-#### Create Admin account
+## 4. Create Admin account
 
-> 초기화면에서 계정 생성
+* 초기화면에서 계정 생성
 
-#### 번외. WebDAV를 통한 파일 업로드 방법
+## 5. WebDAV를 통한 파일 업로드 방법
 
-> 파일-> 설정-> WebDAV Address 확인-> curl command를 이용하여 업로드
+* 파일-> 설정-> WebDAV Address 확인-> curl command를 이용하여 업로드
 
 ```bash
 $ curl --user '{ID}:{Password}' -T "{업로드할 파일}" "{WebDAV Address}/{하위폴더}/{파일이름}"
 ```
 
-> 직접 mount를 해서 파일을 업로드하는 방법은 아래 [Accessing Nextcloud files using WebDAV] link 참고
+* 직접 mount를 해서 파일을 업로드하는 방법은 아래 [Accessing Nextcloud files using WebDAV] link 참고
 
-### link
+## 6. link
 
 [Official Docker Document](https://hub.docker.com/_/nextcloud)
 

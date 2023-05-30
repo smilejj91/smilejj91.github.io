@@ -12,21 +12,21 @@ tags:
 toc: true
 ---
 
-### How to create plymouth theme
+# How to create plymouth theme
 
-#### splash screen
+## 1. splash screen
 
-> 프로그램의 시작 또는 종료 구간에 보여주는 로딩 화면이며, OS에서는 부팅/종료/다시 시작 등 system의 시작과 종료 구간에서 사용
+* 프로그램의 시작 또는 종료 구간에 보여주는 로딩 화면이며, OS에서는 부팅/종료/다시 시작 등 system의 시작과 종료 구간에서 사용
 
-#### plymouth
+## 2. plymouth
 
-> debian에서는 splash screen을 보여주기 위해 plymouth 라는 패키지를 이용하고 있음
+* debian에서는 splash screen을 보여주기 위해 plymouth 라는 패키지를 이용하고 있음
 
-#### plymouth theme
+## 3. plymouth theme
 
-> debian에서는 기본적인 theme을 가지고 있는 desktop-base 패키지에서 제공(grub, login, wallpaper, plymouth)
+* debian에서는 기본적인 theme을 가지고 있는 desktop-base 패키지에서 제공(grub, login, wallpaper, plymouth)
 
-#### file tree
+## 4. file tree
 
 ```bash
 usr
@@ -38,9 +38,9 @@ usr
         └ {Theme Name}/{Theme Name}.script
 ```
 
-#### create custom plymouth theme
+## 5. create custom plymouth theme
 
-##### Step 1. create .plymouth file 
+### Step 1. create .plymouth file 
 
 > ImageDir : .script에서 image를 loading할 root directory path
 
@@ -55,7 +55,7 @@ ImageDir=/usr/share/plymouth/themes/smilejj
 ScriptFile=/usr/share/plymouth/themes/smilejj/smilejj.script
 ```
 
-##### Step 2. create .script file
+### Step 2. create .script file
 
 ```bash
 ...
@@ -66,12 +66,12 @@ Plymouth.SetMessageFunction (message_callback); // 메시지 출력 화면 (plym
 Plymouth.SetSystemUpdateFunction(progress_callback); // 오프라인 업데이트 화면 (plymouth system-update handler)
 ```
 
-##### Step 3. apply custom plymouth theme 
+### Step 3. apply custom plymouth theme 
 
 ```bash
 $ sudo plymouth-set-default-theme -R smilejj
 ```
 
-### link
+## 6. link
 
 [Plymouth Document](https://www.freedesktop.org/wiki/Software/Plymouth/Scripts/)

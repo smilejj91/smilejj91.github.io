@@ -12,13 +12,13 @@ tags:
 toc: true
 ---
 
-### How to create ISO Image Using live-build
+# How to create ISO Image Using live-build
 
-#### live-build
+## 1. live-build
 
-> ISO 이미지를 제작하기 위해서 사용하고 있는 패키지
+* ISO 이미지를 제작하기 위해서 사용하고 있는 패키지
 
-#### file tree
+## 2. file tree
 
 ```bash
 config
@@ -52,17 +52,17 @@ config
   └ includes.installer
 ```
 
-#### configuration
+## 3. configuration
 
-##### Step 1. make config folder
+### Step 1. make config folder
 
 ```bash
 $ lb config
 ```
 
-##### Step 2. modify files in config folder
+### Step 2. modify files in config folder
 
-###### bootstrap (Architecture, Distribution, component, repository, etc.)
+#### bootstrap (Architecture, Distribution, component, repository, etc.)
 
 ```bash
 ...
@@ -79,7 +79,7 @@ LB_PARENT_MIRROR_BOOTSTRAP="http://deb.debian.org/debian"
 ...
 ```
 
-###### chroot (Chroot filesystem, keyring, linux-kernel, security/updates/backports repository enable/disable, etc.)
+##### chroot (Chroot filesystem, keyring, linux-kernel, security/updates/backports repository enable/disable, etc.)
 
 ```bash
 ...
@@ -103,7 +103,7 @@ LB_BACKPORTS="false"
 ...
 ```
 
-###### binary (image type, filesystem, kernel boot parameter, bootloader, disk label. etc.)
+##### binary (image type, filesystem, kernel boot parameter, bootloader, disk label. etc.)
 
 ```bash
 ...
@@ -127,7 +127,7 @@ LB_HDD_LABEL="DEBIAN_LIVE"
 ...
 ```
 
-###### common (apt configuration, cache, iso file name, iso type, etc.)
+##### common (apt configuration, cache, iso file name, iso type, etc.)
 
 ```bash
 ...
@@ -166,7 +166,7 @@ APTITUDE_OPTIONS="--assume-yes -o Acquire::Retries=5"
 ...
 ```
 
-###### package-lists/test.list.chroot_live (live system package)
+##### package-lists/test.list.chroot_live (live system package)
 
 ```bash
 ...
@@ -178,7 +178,7 @@ live-tools
 ...
 ```
 
-###### package-lists/test.list.chroot (live + installed system package)
+##### package-lists/test.list.chroot (live + installed system package)
 
 ```bash
 ...
@@ -207,7 +207,7 @@ firmware-iwlwifi
 ...
 ```
 
-###### package-lists/test.list.binary (packages installed by the installer)
+##### package-lists/test.list.binary (packages installed by the installer)
 
 ```bash
 ...
@@ -218,13 +218,13 @@ gnome-initial-setup
 ...
 ```
 
-##### Step 3. create iso image
+#### Step 3. create iso image
 
 ```bash
 $ lb config # apply configuration
 $ lb build
 ```
 
-### link
+## 4. link
 
 [Debian Live Build Manual](ttps://live-team.pages.debian.net/live-manual/html/live-manual/index.en.html)

@@ -11,21 +11,18 @@ tags:
 toc: true
 ---
 
-### How to use gitlab runner
+# How to use gitlab runner
 
-#### Gitlab-runner
+## 1. Gitlab-runner
 
-> gitlab-runner는 개발하고 있는 제품의 CI/CD (Continuous Integration / Continuous Deployments)를 가능하게 해주는 Gitlab의 기능 중 하나이다.
+* gitlab-runner는 개발하고 있는 제품의 CI/CD (Continuous Integration / Continuous Deployments)를 가능하게 해주는 Gitlab의 기능 중 하나이다.
+*  Gitlab, Group, Project 단위 별로 Gitlab Runner를 등록할 수 있으며, 등록 방법은 다음과 같다.
 
-> Gitlab, Group, Project 단위 별로 Gitlab Runner를 등록할 수 있으며, 등록 방법은 다음과 같다.
+## 2. Install and Register Gitlab-runner
 
-#### Install and Register Gitlab-runner
-
-> Git Project -> Settings -> Ci/CD -> Runners
-
-> 아래는 gitlab에서 가이드하고 있는 gitlab-runner 등록 방법 중 shell 방식을 사용하는 경우임
-
-> gitlab-runner register는 방식이 다양하므로, [Gitlab Runner Register Guide](https://docs.gitlab.com/runner/register/index.html) 를 참고해서 입맛에 맞게 수정한다.
+* Git Project -> Settings -> Ci/CD -> Runners
+* 아래는 gitlab에서 가이드하고 있는 gitlab-runner 등록 방법 중 shell 방식을 사용하는 경우임
+* gitlab-runner register는 방식이 다양하므로, [Gitlab Runner Register Guide](https://docs.gitlab.com/runner/register/index.html) 를 참고해서 입맛에 맞게 수정한다.
 
 ```bash
 #!/bin/bash
@@ -52,10 +49,9 @@ sbuild-adduser gitlab-runner
 cp /usr/share/doc/sbuild/examples/example.sbuildrc /home/gitlab-runner/.sbuildrc
 ```
 
-> gitlab runner를 성공적으로 등록한 뒤에, 해당 project가 gitlab runner에 의해 빌드될 수 있도록 Project 최상단에 .gitlab-ci.yml 작성
-
-> 아래 파일은 debian package의 sbuild를 하기 위한 .gitlab-ci.yml의 sample 파일로써, 자신의 project에 맞게 적절히 수정하여 활용하도록 한다.
->> 참고 사항 : .gitlab-ci.yml 파일이 git project에 남는다는 단점이 있음
+* gitlab runner를 성공적으로 등록한 뒤에, 해당 project가 gitlab runner에 의해 빌드될 수 있도록 Project 최상단에 .gitlab-ci.yml 작성
+* 아래 파일은 debian package의 sbuild를 하기 위한 .gitlab-ci.yml의 sample 파일로써, 자신의 project에 맞게 적절히 수정하여 활용하도록 한다.
+  * 참고 사항 : .gitlab-ci.yml 파일이 git project에 남는다는 단점이 있음
 
 ```bash
 stages:
@@ -82,4 +78,4 @@ build-job:       # This job runs in the build stage, which runs first.
     - sbuild
 ```
 
-> 성공적으로 빌드가 될 경우, Git project -> CI/CD -> Piplelines에서 위에서 명시한 artifacts를 다운로드 받을 수 있음
+* 성공적으로 빌드가 될 경우, Git project -> CI/CD -> Piplelines에서 위에서 명시한 artifacts를 다운로드 받을 수 있음
